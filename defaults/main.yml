@@ -1,0 +1,11 @@
+---
+# defaults file for vagrant-host
+
+mgmt_network_name: vagrant-libvirt
+mgmt_bridge_name: virbr1
+mgmt_domain_name: vagrant.example.com
+mgmt_network_gateway_address: 192.168.121.1
+mgmt_network_netmask: 255.255.255.0
+mgmt_network_dhcp_client_address_start: 192.168.121.1
+mgmt_network_dhcp_client_address_end: 192.168.121.254
+

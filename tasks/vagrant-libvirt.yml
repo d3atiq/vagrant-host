@@ -1,0 +1,19 @@
+# Vagrant host: configure vagrant-libvirt network
+---
+
+- name: Define management virtual network
+  virt_net:
+    state: present
+    name: "{{ mgmt_network_name }}"
+    xml: "{{ lookup('template', 'vagrant-libvirt/mgmt-network.xml.j2') }}"
+
+- name: Set management virtual network as autostart
+  virt_net:
+    name: "{{ mgmt_network_name }}"
+    autostart: yes
+
+- name: Start management virtual network
+  virt_net:
+    name: "{{ mgmt_network_name }}"
+    state: active
+

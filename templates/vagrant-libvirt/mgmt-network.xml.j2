@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  vagrant-libvirt virtual network definition for vagrant management network 
+  isolated - won't forward 
+  dns is local - won't forward
+-->
+<network>
+  <name>{{ mgmt_network_name }}</name>
+  <!-- re-generate the uuid before using in a new host -->
+  <bridge name='{{ mgmt_bridge_name }}' stp='on' delay='0'/>
+  <!-- re-generate the mac address before using in a new host -->
+  <domain name='{{ mgmt_domain_name }}' localOnly='yes'/>
+  <ip address='{{ mgmt_network_gateway_address }}' netmask='{{ mgmt_network_netmask }}'>
+    <dhcp>
+      <range start='{{ mgmt_network_dhcp_client_address_start }}' end='{{ mgmt_network_dhcp_client_address_end }}'/>
+    </dhcp>
+  </ip>
+</network>
